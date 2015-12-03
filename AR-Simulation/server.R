@@ -2,7 +2,8 @@
 # aphilips@pols.tamu.edu
 # 12/02/15
 # --------------------------------#
-
+library(ggplot2)
+library(shiny)
 shinyServer(function(input, output) {
 
 	output$plot <- renderPlot({

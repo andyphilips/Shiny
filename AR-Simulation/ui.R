@@ -2,7 +2,8 @@
 # aphilips@pols.tamu.edu
 # 12/02/15
 # --------------------------------#
-
+library(ggplot2)
+library(shiny)
 shinyUI(fluidPage(
   titlePanel("AR Simulation"),
 
