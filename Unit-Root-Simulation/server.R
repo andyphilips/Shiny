@@ -14,10 +14,21 @@ shinyServer(function(input, output) {
     theta0 <- 0.1
     T <- seq(1:input$obs)
     b <- 0.1
-    for (t in 2:input$obs) y[t] <- y[t-1] + w[t]
-    for (t in 2:input$obs) y.d[t] <- y.d[t-1] + theta0 + w[t]
-    for (t in 2:input$obs) y.t[t] <- y.t[t-1] + b*T[t] + w[t]
-    for (t in 2:input$obs) y.dt[t] <- y.dt[t-1] + theta0 + b*T[t] + w[t]
+
+
+   if(input$struc.break) {
+   	t.half <- (as.numeric(input$obs))/2
+   	t.break <- ifelse(T < t.half,0,1)
+   	for (t in 2:input$obs) y[t] <- y[t-1] + input$break.size*t.break[t] + w[t]
+   	for (t in 2:input$obs) y.d[t] <- y.d[t-1] + theta0 + input$break.size*t.break[t] +  w[t]
+   	for (t in 2:input$obs) y.t[t] <- y.t[t-1] + b*T[t] + input$break.size*t.break[t] + w[t]
+   	for (t in 2:input$obs) y.dt[t] <- y.dt[t-1] +  input$break.size*t.break[t] + theta0 + b*T[t] + w[t]
+   } else	{
+   	for (t in 2:input$obs) y[t] <- y[t-1] + w[t]
+   	for (t in 2:input$obs) y.d[t] <- y.d[t-1] + theta0 + w[t]
+   	for (t in 2:input$obs) y.t[t] <- y.t[t-1] + b*T[t] + w[t]
+   	for (t in 2:input$obs) y.dt[t] <- y.dt[t-1] + theta0 + b*T[t] + w[t]
+   }
     plotType <- function(x, type) {
       switch(type,
              "Unit Root" = plot(y, type = "l", xlab = "Time", ylab = "Value", main = "Unit-Root", col = 'blue', lwd = 3),

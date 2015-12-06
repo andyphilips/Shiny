@@ -14,9 +14,14 @@ shinyUI(fluidPage(
                                 selected = 100),
                     br(),
                     radioButtons("pType", "Choose plot type:",
-                                 list("Unit Root", "With Drift", "With Trend", "With Drift and Trend"))
+                                 list("Unit Root", "With Drift", "With Trend", "With Drift and Trend")),
+                    br(),
+                    br(),
+                    checkboxInput('struc.break', "Add structural break halfway through the series", FALSE),
+                    br(),
+                    sliderInput(inputId = "break.size", label = ("Magnitude of Break"), min = -3.00, max = 3.00, value = 0.00, step = 0.25)
                   ),
-    mainPanel("This app lets you simulate unit-root processes. You have the option of adding a drift and/or deterministic trend to the series.",
+    mainPanel("This app lets you simulate unit-root processes. You have the option of adding a drift and/or deterministic trend to the series. You can also add a structural break to occur halfway through the series.",
             plotOutput("plot"),
             br(),
             br(),
