@@ -1,9 +1,8 @@
 # Andy Philips
 # aphilips@pols.tamu.edu
-# 12/02/15
+# 12/23/15
 # --------------------------------#
-library(ggplot2)
-library(shiny)
+
 shinyUI(fluidPage(
   titlePanel("AR Simulation"),
 
@@ -14,7 +13,9 @@ shinyUI(fluidPage(
     		choices = c(10, 25, 50, 100, 250, 500, 1000),
     		selected = 100),
 				br(),
-    		sliderInput(inputId = "phi", label = ("Autoregressive Parameter"), min = 0.00, max = .99, value = .50)
+    		sliderInput(inputId = "phi", label = ("Autoregressive Parameter"), min = 0.00, max = .99, value = .50),
+				br(),
+				actionButton("goButton", "Re-Simulate")
    	),
     mainPanel(
       "This app lets you simulate autoregressive (AR) processes",
