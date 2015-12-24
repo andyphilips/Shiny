@@ -7,7 +7,11 @@ library(shiny)
 shinyServer(function(input, output) {
 	output$plot <- renderPlot({
   	makeplot <- function()	{			# func to call plot
-  		y <- y.d <- y.t <- y.dt <- w <- rnorm(input$obs)
+  		y <- rnorm(input$obs)
+  		y.d <- rnorm(input$obs)
+  		y.t <- rnorm(input$obs)
+  		y.dt <- rnorm(input$obs)
+  		w <- rnorm(input$obs)
   		theta0 <- 0.1
   		T <- seq(1:input$obs)
   		b <- 0.1
