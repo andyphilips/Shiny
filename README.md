@@ -7,3 +7,4 @@ To run a particular Shiny app, type `runGitHub("andyphilips/Shiny", subdir = "<s
 |---|---|
 | [AR-Simulation](https://github.com/andyphilips/Shiny/tree/master/AR-Simulation)  | To simulate autoregressive (AR1) processes.   |
 | [Unit-Root-Simulation](https://github.com/andyphilips/Shiny/tree/master/Unit-Root-Simulation)  |  To simulate unit-roots. |  
+[Spurious-Regression](https://github.com/andyphilips/Shiny/tree/master/Spurious-Regression)	|	To examine the spurious regression problem of unit-roots.	|
