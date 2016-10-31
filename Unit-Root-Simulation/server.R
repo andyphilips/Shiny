@@ -12,7 +12,7 @@ shinyServer(function(input, output) {
   		y.t <- rnorm(input$obs)
   		y.dt <- rnorm(input$obs)
   		w <- rnorm(input$obs)
-  		theta0 <- 0.1
+  		theta0 <- 0.7
   		T <- seq(1:input$obs)
   		b <- 0.1
 
