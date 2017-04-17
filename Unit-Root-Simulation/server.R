@@ -1,6 +1,6 @@
 # Andy Philips
-# aphilips@pols.tamu.edu
-# 12/24/15
+# andrew.philips@colorado.edu
+# 2017
 # --------------------------------#
 library(shiny)
 
@@ -12,9 +12,9 @@ shinyServer(function(input, output) {
   		y.t <- rnorm(input$obs)
   		y.dt <- rnorm(input$obs)
   		w <- rnorm(input$obs)
-  		theta0 <- 0.7
+  		theta0 <- input$drift.size
   		T <- seq(1:input$obs)
-  		b <- 0.1
+  		b <- input$trend.size
 
   		if(input$struc.break) {			# is structural break specified?
   			t.half <- (as.numeric(input$obs))/2

@@ -1,0 +1,19 @@
+/*!
+	Andy Philips
+	CSS custom file for Shiny
+	2017
+*/
+
+body, label, input, button, select {
+	font-family: 'Source Sans Pro', sans-serif;
+}
+
+.button {
+    -webkit-transition-duration: 0.4s; /* Safari */
+    transition-duration: 0.4s;
+}
+
+.button:hover {
+	background-color: #4CAF50;
+	color: white;
+}
